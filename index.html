@@ -5,8 +5,8 @@
  <style type="text/css">
 div {
     margin: 20px;
-    width: 100px;
-    height: 100px;
+    width: 500px;
+    height: 500px;
     background: #f00;
     -webkit-animation-name: spin;
     -webkit-animation-duration: 4000ms;
@@ -46,7 +46,13 @@ div {
         transform:rotate(360deg);
     }
 }
-	 h4 {background:yellow}
+	 h4 {
+		 background:yellow
+		animation-name: spin;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+	 }
  </style>
  </head>
 	
