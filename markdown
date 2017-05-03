@@ -1,5 +1,5 @@
 
-<h1>Markdown Editor<h1>
+<h1>Markdown Editor</h1>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.js"></script>
