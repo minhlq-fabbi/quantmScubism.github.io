@@ -1406,16 +1406,12 @@ window.onload = function () {
         $scope.updateOptions(false);
 
         // get text from URL or load the default text
-        if (window.location.hash) {
-            /*
+        if (window.location.hash) {           
              var hashText = window.location.hash.replace(/^#(\/)?/, '');
              hashText = decodeURIComponent(hashText);
-             $scope.text = hashText;
-             */
-        } else if (sessionStorage.getItem('text')) {
-            /*
-             $scope.text = sessionStorage.getItem('text');
-             */
+             $scope.text = hashText;             
+        } else if (sessionStorage.getItem('text')) {           
+             $scope.text = sessionStorage.getItem('text');            
         } else {
              $http.get('//raw.githubusercontent.com/quantmScubism/quantmScubism.github.io/master/README.md').success(function (data) {
                     $scope.text = data
