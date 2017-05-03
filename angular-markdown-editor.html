@@ -1,0 +1,79 @@
+<!doctype html>
+<html ng-strict-di>
+	<head>
+	  <meta charset="utf-8">
+	  <title>Angular-Mardown-Editor (ghiscoding)</title>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+		<link rel="stylesheet" href="//rawgit.com/toopay/bootstrap-markdown/master/css/bootstrap-markdown.min.css">
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
+	  <link rel="stylesheet" href="style.css">
+
+		<!-- external librairies CDN -->
+		<script type="text/javascript" src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+		<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+		<script type="text/javascript" src="//rawgit.com/Hypercubed/angular-marked/master/dist/angular-marked.min.js"></script>
+		<script type="text/javascript" src="//rawgit.com/toopay/bootstrap-markdown/master/js/bootstrap-markdown.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+		<script type="text/javascript" src="//rawgit.com/pc035860/angular-highlightjs/master/build/angular-highlightjs.min.js"></script>
+
+
+		<!-- your ng-app file -->
+  	<script type="text/javascript" src="app.js"></script>
+  	<script type="text/javascript" src="https://rawgit.com/ghiscoding/angular-markdown-editor/master/src/angular-markdown-editor.js"></script>
+	</head>
+
+	<body ng-app="example-app" ng-controller="MainController">
+		<div class="container">
+			<h1>Angular Markdown Editor</h1>
+			<a href="https://github.com/ghiscoding/angular-markdown-editor">Ghiscoding Github Project</a> |
+			<a href="http://plnkr.co/edit/jADq7H?p=preview">Plunker Live Demo</a>
+
+			<hr/>
+
+			<marked>
+			    ## Markdown directive
+			    *It works!*
+					#### Markdown [cheatsheet](//github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+			</marked>
+
+			<hr/>
+			
+		<div>
+			External Markdown Editor API Calls with `$rootScope.markdownEditorObjects`
+			<br/>
+			<button class="btn btn-info" ng-click="fullScreenPreview()">Full Screen Preview</button>
+		</div>
+		<hr/>
+
+		<div class="row">
+				<div class="col-md-12 col-lg-6">
+						<div class="form-group">
+								<label for="comment">Live Markdown with <a href="http://www.codingdrama.com/bootstrap-markdown/">Bootstrap-Markdown Editor</a>:</label>
+								<textarea 	name="editor1" class="content-box"
+    								ng-model="editor1"
+    								markdown-editor="{'iconlibrary': 'fa', addExtraButtons: true, resize: 'vertical'}"
+    								on-fullscreen="onFullScreenCallback()"
+    								on-fullscreen-exit="onFullScreenExitCallback()"
+    								rows="10" >
+    					</textarea>
+						</div>
+				</div>
+				<div class="col-md-12 col-lg-6 fill">
+						<div class="form-group">
+								<label for="comment">Preview Result:</label>
+								<div marked="markdown" class="outline" style="padding: 20px">
+								</div>
+						</div>
+				</div>
+		</div>
+
+		<hr/>
+
+		<div class="outline" style="padding:20px; margin-bottom: 20px" marked src="'readme.md'">
+		</div>
+  </body>
+</html>
