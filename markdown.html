@@ -13,5 +13,7 @@
 </head>
 <body>
 <h1>Markdown Editor</h1>
+<textarea id="editor" class="postEditor ng-pristine ng-valid ng-touched" title="Input markdown syntax" data-ng-model="text"></textarea>
+<div id="preview" markdown-to-html="text" class="ng-isolate-scope"></div>
 </body>
 </html>
