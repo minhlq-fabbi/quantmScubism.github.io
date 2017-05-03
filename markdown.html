@@ -1417,7 +1417,7 @@ window.onload = function () {
              $scope.text = sessionStorage.getItem('text');
              */
         } else {
-             $http.get('//github.com/showdownjs/showdown/blob/master/README.md').success(function (data) {
+             $http.get('//raw.githubusercontent.com/quantmScubism/quantmScubism.github.io/master/README.md').success(function (data) {
                     $scope.text = data
                 }).error(function () {
                     $scope.text = '';
