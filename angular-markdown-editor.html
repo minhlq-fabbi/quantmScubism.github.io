@@ -7,7 +7,104 @@
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 		<link rel="stylesheet" href="//rawgit.com/toopay/bootstrap-markdown/master/css/bootstrap-markdown.min.css">
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
-	  <link rel="stylesheet" href="style.css">
+		<style type="text/css">
+				.outline {
+		  border: 1px solid #ddd;
+		  border-radius: 3px;
+		}
+		textarea.processed.md-input {
+		  padding: 10px;
+		}
+
+		/* http://johnsardine.com/freebies/dl-html-css/simple-little-tab/ */
+		table a:link {
+			color: #666;
+			font-weight: bold;
+			text-decoration:none;
+		}
+		table a:visited {
+			color: #999999;
+			font-weight:bold;
+			text-decoration:none;
+		}
+		table a:active,
+		table a:hover {
+			color: #bd5a35;
+			text-decoration:underline;
+		}
+		table {
+			font-family:Arial, Helvetica, sans-serif;
+			color:#606060;
+			font-size:15px;
+			background:#eaeaea;
+			margin:10px;
+			border:#ccc 1px solid;
+
+			-moz-border-radius:3px;
+			-webkit-border-radius:3px;
+			border-radius:3px;
+		}
+		table th {
+			padding:8px 15px;
+			border-bottom:1px solid #e0e0e0;
+			background: #f6f6f6;
+		  color:#333;
+		}
+		table th:first-child {
+			text-align: left;
+			padding-left:10px;
+		}
+		table tr:first-child th:first-child {
+			-moz-border-radius-topleft:3px;
+			-webkit-border-top-left-radius:3px;
+			border-top-left-radius:3px;
+		}
+		table tr:first-child th:last-child {
+			-moz-border-radius-topright:3px;
+			-webkit-border-top-right-radius:3px;
+			border-top-right-radius:3px;
+		}
+		table tr {
+			text-align: center;
+			padding-left:10px;
+		}
+		table td:first-child {
+			text-align: left;
+			padding-left:10px;
+			border-left: 0;
+		}
+		table td {
+			padding:8px;
+			border-top: 1px solid #ffffff;
+			border-bottom:1px solid #e0e0e0;
+			border-left: 1px solid #e0e0e0;
+
+			background: #fff;
+		}
+
+		table tr:nth-child(2n) td {
+			background: #f8f8f8;
+		}
+		table tr:last-child td {
+			border-bottom:0;
+		}
+		table tr:last-child td:first-child {
+			-moz-border-radius-bottomleft:3px;
+			-webkit-border-bottom-left-radius:3px;
+			border-bottom-left-radius:3px;
+		}
+		table tr:last-child td:last-child {
+			-moz-border-radius-bottomright:3px;
+			-webkit-border-bottom-right-radius:3px;
+			border-bottom-right-radius:3px;
+		}
+		table tr:hover td {
+			background: #f4f4f4;
+			background: -webkit-gradient(linear, left top, left bottom, from(#f4f4f4), to(#f2f2f2));
+			background: -moz-linear-gradient(top,  #f4f4f4,  #f2f2f2);
+		}
+
+		</style>
 
 		<!-- external librairies CDN -->
 		<script type="text/javascript" src="//code.jquery.com/jquery-2.2.4.min.js"></script>
@@ -22,7 +119,72 @@
 
 
 		<!-- your ng-app file -->
-  	<script type="text/javascript" src="app.js"></script>
+  	<script type="text/javascript">
+	'use strict';
+
+angular.module('example-app', ['hc.marked', 'hljs', 'angular-markdown-editor'])
+    .config(['markedProvider', 'hljsServiceProvider', function(markedProvider, hljsServiceProvider) {
+      // marked config
+      markedProvider.setOptions({
+        gfm: true,
+        tables: true,
+        sanitize: true,
+        highlight: function (code, lang) {
+          if (lang) {
+            return hljs.highlight(lang, code, true).value;
+          } else {
+            return hljs.highlightAuto(code).value;
+          }
+        }
+      });
+
+      // highlight config
+      hljsServiceProvider.setOptions({
+        // replace tab with 4 spaces
+        tabReplace: '    '
+      });
+    }])
+    .controller("MainController", ["$rootScope", "$scope", "marked", function MarkdownController($rootScope, $scope, marked) {
+      $scope.editor1 = "*This* **is** [markdown](https://daringfireball.net/projects/markdown/)\n and `{{ 1 + 2 }}` = {{ 1 + 2 }}";
+      $scope.markdownService = marked('#TEST');
+
+      // --
+      // normal flow, function call
+      $scope.convertMarkdown = function() {
+        vm.convertedMarkdown = marked(vm.markdown);
+      }
+      
+      /**
+       * For some convenience, Angular-Markdown-Editor Directive also save each Markdown Editor inside $rootScope
+       * Each of editor object are available through their $rootScope.markdownEditorObjects[editorName]
+       *
+       * Example: <textarea name="editor1" markdown-editor="{'iconlibrary': 'fa'}"></textarea>
+       * We would then call our object through $rootScope.markdownEditorObjects.editor1
+       */
+      $scope.fullScreenPreview = function() {
+        $rootScope.markdownEditorObjects.editor1.showPreview();
+        $rootScope.markdownEditorObjects.editor1.setFullscreen(true);
+      }
+
+      /** Markdown event hook onFullscreen, in this example we will automatically show the result preview when going in full screen
+       * the argument (e) is the actual Markdown object returned which help call any of API functions defined in Markdown Editor
+       * For a list of API functions take a look on official demo site http://www.codingdrama.com/bootstrap-markdown/
+       * @param object e: Markdown Editor object
+       */
+      $scope.onFullScreenCallback = function(e) {
+        e.showPreview();
+      }
+
+      /** After exiting from full screen, let's go back to editor mode (which mean hide the preview)
+       * NOTE: If you want this one to work, you will have to manually download the JS file, not sure why but they haven't released any versions in a while
+       *       https://github.com/toopay/bootstrap-markdown/tree/master/js
+       */
+      $scope.onFullScreenExitCallback = function(e) {
+        e.hidePreview();
+      }
+
+    }]);	
+	</script>
   	<script type="text/javascript" src="https://rawgit.com/ghiscoding/angular-markdown-editor/master/src/angular-markdown-editor.js"></script>
 	</head>
 
