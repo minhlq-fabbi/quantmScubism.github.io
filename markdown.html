@@ -1466,7 +1466,7 @@ function renderMarkDownInput() {
 </script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/atelier-dune-dark.min.css"/>
 </head>
-<body>
+<body  id="default" class="default ng-scope full-body" ng-controller="editorCtrl" squeeze="">
 <h1>Markdown Editor</h1>
 <textarea id="editor" class="postEditor ng-pristine ng-valid ng-touched" title="Input markdown syntax" data-ng-model="text"></textarea>
 <div id="preview" markdown-to-html="text" class="ng-isolate-scope"></div>
