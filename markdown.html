@@ -13,7 +13,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
 <style type="text/css">
-.container textarea {
+textarea {
     resize: none;
     font-family: Consolas, "Liberation Mono", Courier, monospace;
     height: 97%;
@@ -1486,8 +1486,9 @@ function renderMarkDownInput() {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/atelier-dune-dark.min.css"/>
 </head>
 <body  id="default" class="default ng-scope full-body" ng-controller="editorCtrl" squeeze="">
-<h1>Markdown Editor</h1>
+<h1>Markdown Input</h1>
 <textarea id="editor" class="postEditor ng-pristine ng-valid ng-touched" title="Input markdown syntax" data-ng-model="text"></textarea>
+<h1>Markdown Render</h1>
 <div id="preview" markdown-to-html="text" class="ng-isolate-scope"></div>
 </body>
 </html>
