@@ -24,6 +24,7 @@ Links
 Quotes
 > This is a quote.
 > It can span multiple lines!
+
 Images   Need to upload an image? Imgur has a great interface.
 ![Coding Horror - Jeff Atwood](https://blog.codinghorror.com/content/images/uploads/2006/07/6a0120a85dcdae970b0128776fd125970c-pi.jpg)
 
