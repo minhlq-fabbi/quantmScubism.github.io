@@ -1764,28 +1764,18 @@
   <div class="row">
     <div class="col-md-12 col-lg-6">
       <div class="form-group">
-        <label for="comment">Live Markdown with
-          <a href="http://www.codingdrama.com/bootstrap-markdown/">Bootstrap-Markdown Editor</a>:</label>
         <textarea name="editor1" class="content-box"
           ng-model="editor1"
           markdown-editor="{'iconlibrary': 'fa', addExtraButtons: true, resize: 'vertical'}"
           on-fullscreen="onFullScreenCallback()"
           on-fullscreen-exit="onFullScreenExitCallback()"
           rows="10">
-    					</textarea>
-      </div>
-    </div>
-    <div class="col-md-12 col-lg-6 fill">
-      <div class="form-group">
-        <label for="comment">Preview Result:</label>
-        <div marked="markdown" class="outline" style="padding: 20px">
-        </div>
+        </textarea>
       </div>
     </div>
   </div>
   <hr/>
-  <div class="outline" style="padding:20px; margin-bottom: 20px" marked src="'README.md'">
-  </div>
+  <div class="outline" style="padding:20px; margin-bottom: 20px" marked src="'README.md'"></div>
 </div>
 </body>
 </html>
