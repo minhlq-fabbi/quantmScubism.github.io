@@ -1543,7 +1543,28 @@
             }
           }
         }]
-      }]
+      },
+              {
+                    name: 'groupUtil',
+                    data: [{
+                        name: 'cmdPreviewFullscreen',
+                        toggle: true,
+                        hotkey: 'Ctrl+F',
+                        title: 'Full Screen Preview',
+                        btnText: 'Full Screen Preview',
+                        btnClass: 'btn btn-primary btn-sm btn-go-fullscreen',
+                        icon: {
+                            glyph: 'glyphicon glyphicon-fullscreen',
+                            fa: 'fa fa-expand',
+                            'fa-3': 'icon-resize-small',
+                            octicons: 'octicon octicon-browser'
+                        },
+                        callback: function (e) {
+                            e.setFullscreen(true)
+                        }
+                    }]
+                }
+      ]
     ],
     customIcons: {},
     additionalButtons: [], // Place to hook more buttons by code
