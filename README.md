@@ -1,5 +1,4 @@
 # quantmScubism.github.io
-![Logo](https://blog.codinghorror.com/content/images/uploads/2006/07/6a0120a85dcdae970b0128776fd125970c-pi.jpg)
 
 Markdown Guide
 Emphasis
@@ -28,7 +27,6 @@ Quotes
 Images   Need to upload an image? Imgur has a great interface.
 ![Coding Horror - Jeff Atwood](https://blog.codinghorror.com/content/images/uploads/2006/07/6a0120a85dcdae970b0128776fd125970c-pi.jpg)
 
-![Logo](https://daynhauhoc.s3-ap-southeast-1.amazonaws.com/original/2X/8/86c4f5d6c5df08ac25650efdd55beb82b0463b62.gif =100x100)
 Tables
 | Column 1 | Column 2 | Column 3 |
 | -------- | -------- | -------- |
