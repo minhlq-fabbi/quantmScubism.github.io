@@ -1707,7 +1707,7 @@
       }])
       .controller("MainController", ["$rootScope", "$scope", "marked","$http", function MarkdownController($rootScope, $scope, marked, $http) {
         $http.get('//raw.githubusercontent.com/quantmScubism/quantmScubism.github.io/master/README.md').success(function(data){
-            $scope.editor1 = data
+            $scope.text = data
         })    
         $scope.markdownService = marked('#TEST');
 
@@ -1763,7 +1763,7 @@
     <div class="col-md-12 col-lg-6">
       <div class="form-group">
         <textarea name="editor1" class="content-box"
-          ng-model="editor1"   
+          data-ng-model="text"   
           markdown-editor="{'iconlibrary': 'fa', addExtraButtons: true, resize: 'horizontal'}"
           on-fullscreen="onFullScreenCallback()"
           on-fullscreen-exit="onFullScreenExitCallback()"
