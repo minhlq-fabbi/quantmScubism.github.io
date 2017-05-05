@@ -1,5 +1,5 @@
 # quantmScubism.github.io
-![Logo](https://blog.codinghorror.com/content/images/uploads/2006/07/6a0120a85dcdae970b0128776fd125970c-pi.jpg =50x50)
+![Logo](https://blog.codinghorror.com/content/images/uploads/2006/07/6a0120a85dcdae970b0128776fd125970c-pi.jpg)
 
 Markdown Guide
 Emphasis
