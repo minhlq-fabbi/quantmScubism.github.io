@@ -1755,6 +1755,7 @@
         $scope.onFullScreenExitCallback = function (e) {
           e.hidePreview();
         }
+
       }]);
   </script>
   <script type="text/javascript" src="https://rawgit.com/ghiscoding/angular-markdown-editor/master/src/angular-markdown-editor.js"></script>
@@ -1763,6 +1764,10 @@
 <body ng-app="example-app" ng-controller="MainController">
 <div class="container">
   <h1>Angular Markdown Editor</h1>
+  <hr/>
+  <marked>
+    ## Markdown directive *It works!* #### Markdown [cheatsheet](//github.com/quantmScubism/quantmScubism.github.io/blob/master/README.md)
+  </marked>
   <hr/>
   <div class="row">
     <div class="col-md-12 col-lg-6">
