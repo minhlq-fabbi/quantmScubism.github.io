@@ -459,7 +459,9 @@
                   if (options.reorderButtonGroups.indexOf(a.name) < options.reorderButtonGroups.indexOf(b.name)) {
                     return -1;
                   }
-                  if (options.reorderButtonGroups.indexOf(a.name) > options.reorderButtonGroups.indexOf(b.name)) return 1;
+                  if (options.reorderButtonGroups.indexOf(a.name) > options.reorderButtonGroups.indexOf(b.name)) {
+                    return 1;
+                  }
                   return 0;
                 });
             }
@@ -1763,9 +1765,9 @@
         }
 
       }]);
-      angular.element(document).ready(function(){
-        console.log('DOM')
-      })
+    angular.element(document).ready(function () {
+      $('[name=editor1]').height(innerHeight * 0.75)
+    })
   </script>
   <script type="text/javascript" src="https://rawgit.com/ghiscoding/angular-markdown-editor/master/src/angular-markdown-editor.js"></script>
 </head>
