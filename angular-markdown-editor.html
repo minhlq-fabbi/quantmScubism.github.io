@@ -896,6 +896,28 @@
 
           )();
         },
+        renderEmoji:function(text){
+          
+
+          var e = this.$textarea[0];
+
+          return (
+
+            ('selectionStart' in e && function () {
+              e.value = e.value.substr(0, e.selectionStart) + text + e.value.substr(e.selectionEnd, e.value.length);
+              // Set cursor to the last replacement end
+              e.selectionStart = e.value.length;
+              return this;
+            }) ||
+
+            /* browser not supported */
+            function () {
+              e.value = text;
+              return jQuery(e);
+            }
+
+          )();
+        },
         getNextTab: function () {
           // Shift the nextTab
           if (this.$nextTab.length === 0) {
@@ -1370,9 +1392,11 @@
                     var previewEmotion = '<div class="' + $(this).attr('class') + '" data="' + $(this).attr('data') + '"></div>'
                     var selected = e.getSelection()
                     // transform selection and set the cursor into chunked text
-                    e.replaceSelection(previewEmotion);
-                    var cursor = selected.start + 1;
+                    // Todo : fix wrong render 
+                    e.renderEmoji(previewEmotion);
+                    var cursor = selected.start + 1;                  
                     // Set the cursor
+                    // Todo : fix wrong cursor position
                     e.setSelection(cursor, cursor + previewEmotion.length);
                     $(this).parent().parent().removeClass('display-block')
                   })
