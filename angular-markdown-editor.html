@@ -876,24 +876,20 @@
 
         },
         replaceSelection: function (text) {
-
+          console.log(text)
           var e = this.$textarea[0];
-
           return (
-
             ('selectionStart' in e && function () {
               e.value = e.value.substr(0, e.selectionStart) + text + e.value.substr(e.selectionEnd, e.value.length);
               // Set cursor to the last replacement end
               e.selectionStart = e.value.length;
               return this;
             }) ||
-
             /* browser not supported */
             function () {
               e.value += text;
               return jQuery(e);
             }
-
           )();
         },
         renderEmoji:function(text){
