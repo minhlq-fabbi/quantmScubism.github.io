@@ -1590,7 +1590,7 @@
               hotkey: 'Ctrl+P',
               title: 'Preview',
               btnText: 'Preview',
-              btnClass: 'btn btn-primary btn-sm',
+              btnClass: 'btn btn-primary btn-sm btn-preview',
               icon: {
                 glyph: 'glyphicon glyphicon-search',
                 fa: 'fa fa-search',
@@ -1737,13 +1737,14 @@
         })
         .on('click focusin', function (e) {
           blurNonFocused(e);
+          e.showPreview();
+          console.log(e)
         })
         .ready(function () {
           $('textarea[data-provide="markdown"]').each(function () {
             initMarkdown($(this));
           });
-        });
-
+        });     
     }));
   </script>
   <!-- your ng-app file -->
