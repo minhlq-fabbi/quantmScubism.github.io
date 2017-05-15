@@ -1813,7 +1813,8 @@
         }
 
       }]);
-    angular.element(document).ready(function () {
+    angular.element(document).ready(function (e) {
+      e.showPreview();
       $('[name=editor1]').height(innerHeight * 0.75)
       $('.btn-default,.btn-primary').tooltip({
         position: {
