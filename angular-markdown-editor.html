@@ -1339,7 +1339,32 @@
                   e.setSelection(cursor, cursor + chunk.length);
                 }
               }
-            }]
+            },
+            {
+              name: 'cmdEmoji',
+              title: 'Biểu tượng cảm xúc',
+              hotkey: 'Ctrl+E',
+              icon: {
+                glyph: 'glyphicon glyphicon-picture',
+                fa: 'fa fa-smile-o',
+                'fa-3': 'icon-picture',
+                octicons: 'octicon octicon-file-media'
+              },
+              callback: function (e) {
+                $('.emoji').toggleClass('display-block');
+                $('.em').click(function () {
+                  var previewEmotion = '<div class="' + $(this).attr('class') + '" data="' + $(this).attr('data') + '"></div>'
+                  var selected = e.getSelection()
+                  // transform selection and set the cursor into chunked text
+                  e.replaceSelection(previewEmotion);
+                  var cursor = selected.start + 1;
+                  // Set the cursor
+                  e.setSelection(cursor, cursor + previewEmotion.length);
+                  $(this).parent().parent().removeClass('display-block')
+                })
+              }
+            }     
+            ]
           }, {
             name: 'groupMisc',
             data: [{
