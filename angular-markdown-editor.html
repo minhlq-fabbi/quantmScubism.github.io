@@ -1606,11 +1606,7 @@
                   // Give flag that tell the editor enter preview mode
                   e.showPreview();
                   $('p').each(function () {
-                    var html = $.parseHTML($(this).html())[0].nodeValue
-                    //var html = text.replace(';&lt;/', '</')
-                    //html = html.replace('&gt;', '>')
-                    //html = html.replace('&lt;', '<')
-                    //console.log(text)                  
+                    var html = $.parseHTML($(this).html())[0].nodeValue                           
                     $(this).html(html)
                   })
                 } else {
