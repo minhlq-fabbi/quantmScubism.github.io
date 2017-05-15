@@ -1801,6 +1801,28 @@
       }]);
     angular.element(document).ready(function () {
       $('[name=editor1]').height(innerHeight * 0.75)
+      $('.btn-default,.btn-primary').tooltip({
+        position: {
+          my: "center bottom-20",
+          at: "center top",
+          using: function (position, feedback) {
+            $(this).css(position);
+            $("<div>")
+              .addClass("arrow")
+              .addClass(feedback.vertical)
+              .addClass(feedback.horizontal)
+              .appendTo(this);
+          }
+        }
+      });
+      $('.em').mouseover(function () {
+        var previewEmotion = '<div class="' + $(this).attr('class') + '" data="' + $(this).attr('data') + '"><span style="left:30px;position:relative;">' + $(this).attr('data') + '</span></div>';
+        $('.iconEmtionPreSelect').html(previewEmotion)
+
+      })
+      $('[name=editor1]').click(function () {
+        $('.emoji').removeClass('display-block')
+      })
     })
   </script>
   <script type="text/javascript" src="https://rawgit.com/ghiscoding/angular-markdown-editor/master/src/angular-markdown-editor.js"></script>
