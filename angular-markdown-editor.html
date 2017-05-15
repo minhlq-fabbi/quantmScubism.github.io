@@ -1605,6 +1605,13 @@
                 if (isPreview === false) {
                   // Give flag that tell the editor enter preview mode
                   e.showPreview();
+                  $('p').each(function () {
+                    var text = $(this).html()
+                    var html = text.replace(';&lt;/', '</')
+                    html = html.replace('&gt;', '>')
+                    html = html.replace('&lt;', '<')
+                    $(this).html(html)
+                  })
                 } else {
                   e.hidePreview();
                 }
