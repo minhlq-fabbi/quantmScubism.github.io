@@ -1,4 +1,4 @@
-Markdown editor, click Preview to edit <div class="em emj0" data=":smile:"></div>
+Markdown editor, click Preview to preview <div class="em emj0" data=":smile:"></div>
 # H1
 ## H2
 ### H3
