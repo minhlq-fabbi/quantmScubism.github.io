@@ -1610,7 +1610,7 @@
                     var html = text.replace(';&lt;/', '</')
                     html = html.replace('&gt;', '>')
                     html = html.replace('&lt;', '<')
-                    console.log(text)
+                    console.log($.parseHTML(text))
                     $(this).html(html)
                   })
                 } else {
