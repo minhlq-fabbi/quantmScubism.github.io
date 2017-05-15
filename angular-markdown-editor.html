@@ -899,9 +899,9 @@
         renderEmoji:function(text){
           
           var e = this.$textarea[0];
-
+          console.log(e)                  
           return (
-
+  
             ('selectionStart' in e && function () {
               e.value = e.value.substr(0, e.selectionStart) + text + e.value.substr(e.selectionEnd, e.value.length);
               // Set cursor to the last replacement end
