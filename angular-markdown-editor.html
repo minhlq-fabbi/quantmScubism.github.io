@@ -1803,7 +1803,7 @@
       }])
       .controller("MainController", ["$rootScope", "$scope", "marked", "$http", function MarkdownController($rootScope, $scope, marked, $http) {
         $http.get('//raw.githubusercontent.com/quantmScubism/quantmScubism.github.io/master/README.md').success(function (data) {
-          $scope.text = data
+          $scope.text = 'Input something fun - Mardown syntax'
         })
         $scope.markdownService = marked('#TEST');
         // --
