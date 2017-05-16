@@ -1392,7 +1392,7 @@
                     var cursor = selected.start;                  
                     // Set the cursor
                     // Todo : fix wrong cursor position
-                    e.setSelection(cursor, cursor + previewEmotion.length);
+                    e.setSelection(cursor, cursor + previewEmotion.length*2);
                     $(this).parent().parent().removeClass('display-block')
                   })
                 }
