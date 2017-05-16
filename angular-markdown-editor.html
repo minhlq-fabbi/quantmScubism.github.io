@@ -1625,9 +1625,19 @@
                   // Give flag that tell the editor enter preview mode
                   e.showPreview();
                   $('p').each(function () {
-                    var html = $.parseHTML($(this).html())[0].nodeValue                           
-                    $(this).html(html)
-                  })
+                  var html = $(this).html()
+                  var emtionRender = ''
+                  if (html.match('em emj')) {
+                    var emotion = html.split(' ')
+                    for (var i = 0; i < emotion.length; i++) {
+                      if (i % 2) {
+                        $(this).empty()
+                        emtionRender += '<div class="em ' + emotion[i] + '"></div>'
+                      }
+                    }
+                    $(this).append(emtionRender)
+                  }
+                })
                 } else {
                   e.hidePreview();
                 }
