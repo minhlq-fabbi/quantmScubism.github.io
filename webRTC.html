@@ -16,6 +16,7 @@
   <link rel="icon" sizes="192x192" href="/images/webrtc-icon-192x192.png">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="/static/css/WebRTC.css">
   <style type="text/css">
     /*
@@ -353,36 +354,37 @@ when moving from the home page */
 </head>
 
 <body>
-<table>
-  <thead>
-  <th style="float:left">
-    <label for="select">Effect : </label> <select id="filter">
-    <option value="none"> --Choose effect--</option>
-    <option value="blur">Blur</option>
-    <option value="grayscale">Grayscale</option>
-    <option value="invert">Invert</option>
-    <option value="sepia">Sepia</option>
-  </select>
-    <button id="snapshot" class="icon-camera-retro">Capture <i class="fa fa-camera" aria-hidden="true"></i></button>
-  </th>
-  <th>
-    <div id="textInputWrapper">
-      <input id="textForImage" placeholder="Input text for the bewlow images" type="text"/>
-      <button id="insTextForImage">Add text</button>
-    </div>
-  </th>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      <video autoplay></video>
-    </td>
-    <td>
-      <canvas id="myCanvas"></canvas>
-    </td>
-  </tr>
-  </tbody>
-</table>
+<div class="row">
+  <div class="form-group">
+    <table>
+      <thead>
+      <th style="float:left">
+        <label for="select">Effect : </label> <select id="filter">
+        <option value="none"> --Choose effect--</option>
+        <option value="blur">Blur</option>
+        <option value="grayscale">Grayscale</option>
+        <option value="invert">Invert</option>
+        <option value="sepia">Sepia</option>
+      </select>
+        <button id="snapshot" class="icon-camera-retro">Capture <i class="fa fa-camera" aria-hidden="true"></i></button>
+      </th>
+      <th>
+        <div id="textInputWrapper">
+          <input id="textForImage" placeholder="Input text for the bewlow images" type="text"/>
+          <button id="insTextForImage">Add text</button>
+        </div>
+      </th>
+      </thead>
+    </table>
+  </div>
+  <div class="form-group">
+    <video autoplay></video>
+  </div>
+  <div class="form-group">
+    <canvas id="myCanvas"></canvas>
+  </div>
+</div>
+
 <img id="imageCaptured"/>
 <div class="adsBottom"></div>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -416,7 +418,9 @@ when moving from the home page */
             if (!u && a) {
               return a(o, !0);
             }
-            if (i)return i(o, !0);
+            if (i) {
+              return i(o, !0);
+            }
             var f = new Error("Cannot find module '" + o + "'");
             throw f.code = "MODULE_NOT_FOUND", f
           }
@@ -430,7 +434,9 @@ when moving from the home page */
       }
 
       var i = typeof require == "function" && require;
-      for (var o = 0; o < r.length; o++)s(r[o]);
+      for (var o = 0; o < r.length; o++) {
+        s(r[o]);
+      }
       return s
     })({
       1: [function (require, module, exports) {
