@@ -1,1 +1,132 @@
-<html><head>  <meta charset="utf-8">  <meta name="description" content="Chụp hình online làm avatar">  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">  <meta itemprop="description" content="Client-side WebRTC code samples">  <meta itemprop="image" content="/images/webrtc-icon-192x192.png">  <meta itemprop="name" content="Chụp hình online làm avatar">  <meta property="og:title" content="Chụp hình online"/>  <meta property="og:description " content="Chụp hình online làm avatar"/>  <meta property="og:image" content=""/>  <meta property="twitter:site_name" content="http://myweb.pro.vn">  <meta property="twitter:image" content="<?= $thumbs ?>"/>  <meta property="twitter:title" content="Chụp hình online làm avatar"/>  <meta property="twitter:url" content="https://myweb.pro.vn/plugin/webRTC"/>  <meta property="twitter:description" content="Chụp hình online làm avatar"/>  <meta name="mobile-web-app-capable" content="yes">  <meta id="theme-color" name="theme-color" content="#ffffff">  <base target="_blank">  <title>Chụp hình online làm Avatar</title>  <link rel="icon" sizes="192x192" href="/images/webrtc-icon-192x192.png">  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">  <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">  <link rel="stylesheet" href="/static/css/WebRTC.css">  <style type="text/css">    body {      background: rgba(202, 201, 201, 0.16)    }    .none {      -webkit-filter: none;      filter: none;    }    .blur {      -webkit-filter: blur(3px);      filter: blur(3px);    }    .grayscale {      -webkit-filter: grayscale(1);      filter: grayscale(1);    }    .invert {      -webkit-filter: invert(1);      filter: invert(1);    }    .sepia {      -webkit-filter: sepia(1);      filter: sepia(1);    }    video {      object-fit: cover;    }    .adsBottom {      left: 0px;      bottom: 0px;      float: right;      position: absolute;    }    #saveImgToDIsk {      float: left;      position: relative;      display: none;    }    canvas {      display: none;    }    #textForImage {      height: 30px;      width: 395px;    }    #textInputWrapper {      float: left;      display: none;    }    #insTextForImage {      right: -10px;      position: relative;    }    button {      cursor: pointer;    }  </style></head><body><table>  <thead>  <th style="float:left">    <label for="select">Hiệu ứng : </label> <select id="filter">      <option value="none"> --Chọn hiệu ứng--</option>      <option value="blur">Mờ</option>      <option value="grayscale">Đen trắng</option>      <option value="invert">Ngược sáng</option>      <option value="sepia">Nâu đỏ</option>    </select>    <button id="snapshot" class="icon-camera-retro">Chụp hình <i class="fa fa-camera" aria-hidden="true"></i></button>  </th>  <th>    <div id="textInputWrapper">      <input id="textForImage" placeholder="Nhập đoạn text cho ảnh bên dưới" type="text"/>      <button id="insTextForImage">Thêm text</button>    </div>  </th>  </thead>  <tbody>  <tr>    <td>      <video autoplay></video>    </td>    <td>      <canvas id="myCanvas"></canvas>    </td>  </tr>  </tbody></table><img id="imageCaptured"/><div class="adsBottom"></div><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script><script src="/static/js/WebRtcAdapterLatest.js"></script><script src="/static/js/WebRtcCommon.js"></script><script src="/static/js/webRtcMain.js"></script></body></html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+  <meta itemprop="description" content="Client-side WebRTC code samples">
+  <meta itemprop="image" content="/images/webrtc-icon-192x192.png">
+  <meta itemprop="name" content="Capture images from webcam">
+  <meta property="og:title" content="Capture images from webcam"/>
+  <meta property="og:description " content="Capture images from webcam"/>
+  <meta property="og:image" content=""/>
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta id="theme-color" name="theme-color" content="#ffffff">
+  <base target="_blank">
+  <title>Capture images from webcam</title>
+  <link rel="icon" sizes="192x192" href="/images/webrtc-icon-192x192.png">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/static/css/WebRTC.css">
+  <style type="text/css">
+    body {
+      background: rgba(202, 201, 201, 0.16)
+    }
+
+    .none {
+      -webkit-filter: none;
+      filter: none;
+    }
+
+    .blur {
+      -webkit-filter: blur(3px);
+      filter: blur(3px);
+    }
+
+    .grayscale {
+      -webkit-filter: grayscale(1);
+      filter: grayscale(1);
+    }
+
+    .invert {
+      -webkit-filter: invert(1);
+      filter: invert(1);
+    }
+
+    .sepia {
+      -webkit-filter: sepia(1);
+      filter: sepia(1);
+    }
+
+    video {
+      object-fit: cover;
+    }
+
+    .adsBottom {
+      left: 0px;
+      bottom: 0px;
+      float: right;
+      position: absolute;
+    }
+
+    #saveImgToDIsk {
+      float: left;
+      position: relative;
+      display: none;
+    }
+
+    canvas {
+      display: none;
+    }
+
+    #textForImage {
+      height: 30px;
+      width: 395px;
+    }
+
+    #textInputWrapper {
+      float: left;
+      display: none;
+    }
+
+    #insTextForImage {
+      right: -10px;
+      position: relative;
+    }
+
+    button {
+      cursor: pointer;
+    }
+  </style>
+
+</head>
+
+<body>
+<table>
+  <thead>
+  <th style="float:left">
+    <label for="select">Effect : </label> <select id="filter">
+      <option value="none"> --Choose effect--</option>
+      <option value="blur">Blur</option>
+      <option value="grayscale">Grayscale</option>
+      <option value="invert">Invert</option>
+      <option value="sepia">Sepia</option>
+    </select>
+    <button id="snapshot" class="icon-camera-retro">Capture <i class="fa fa-camera" aria-hidden="true"></i></button>
+  </th>
+  <th>
+    <div id="textInputWrapper">
+      <input id="textForImage" placeholder="Input text for the bewlow images" type="text"/>
+      <button id="insTextForImage">Add text</button>
+    </div>
+  </th>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      <video autoplay></video>
+    </td>
+    <td>
+      <canvas id="myCanvas"></canvas>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<img id="imageCaptured"/>
+<div class="adsBottom"></div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="/static/js/WebRtcAdapterLatest.js"></script>
+<script src="/static/js/WebRtcCommon.js"></script>
+<script src="/static/js/webRtcMain.js"></script>
+</body>
+</html>
