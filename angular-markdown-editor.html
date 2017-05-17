@@ -1373,7 +1373,7 @@
             },
               {
                 name: 'cmdEmoji',
-                title: 'Biểu tượng cảm xúc',
+                title: 'Insert Emoji',
                 hotkey: 'Ctrl+E',
                 icon: {
                   glyph: 'glyphicon glyphicon-picture',
@@ -1392,7 +1392,7 @@
                     var cursor = selected.start;                  
                     // Set the cursor
                     // Todo : fix wrong cursor position
-                    e.setSelection(cursor, cursor + previewEmotion.length);
+                    e.setSelection(cursor, cursor + previewEmotion.length*2);
                     $(this).parent().parent().removeClass('display-block')
                   })
                 }
@@ -1625,9 +1625,19 @@
                   // Give flag that tell the editor enter preview mode
                   e.showPreview();
                   $('p').each(function () {
-                    var html = $.parseHTML($(this).html())[0].nodeValue                           
-                    $(this).html(html)
-                  })
+                  var html = $(this).html()
+                  var emtionRender = ''
+                  if (html.match('em emj')) {
+                    var emotion = html.split(' ')
+                    for (var i = 0; i < emotion.length; i++) {
+                      if (i % 2) {
+                        $(this).empty()
+                        emtionRender += '<div class="em ' + emotion[i] + '"></div>'
+                      }
+                    }
+                    $(this).append(emtionRender)
+                  }
+                })
                 } else {
                   e.hidePreview();
                 }
@@ -1793,7 +1803,7 @@
       }])
       .controller("MainController", ["$rootScope", "$scope", "marked", "$http", function MarkdownController($rootScope, $scope, marked, $http) {
         $http.get('//raw.githubusercontent.com/quantmScubism/quantmScubism.github.io/master/README.md').success(function (data) {
-          $scope.text = data
+          $scope.text = 'Input something fun - Mardown syntax'
         })
         $scope.markdownService = marked('#TEST');
         // --
@@ -1863,8 +1873,9 @@
 
 <body ng-app="example-app" ng-controller="MainController">
 <div class="container">
-  <h1>Angular Markdown Editor</h1>
+  <h3>Markdown Editor</h3>
   <hr/>
+  <a href="https://guides.github.com/features/mastering-markdown/" target="_blank">Refer markdown syntaxt here</a>
   <div class="row">
     <div class="col-md-12 col-lg-6">
       <div class="emoji">
