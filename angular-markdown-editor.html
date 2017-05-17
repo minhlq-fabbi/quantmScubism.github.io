@@ -13,12 +13,14 @@
       background: black;
       color: white;
     }
+
     .peopleTab {
       position: fixed;
       z-index: 1000;
       background: wheat;
       top: 165px;
     }
+
     ::-webkit-scrollbar {
       width: 10px;
       height: 10px;
@@ -579,8 +581,12 @@
             if (options.height && options.height !== 'inherit') {
               if (jQuery.isNumeric(options.height)) {
                 var height = options.height;
-                if (editorHeader) height = Math.max(0, height - editorHeader.outerHeight());
-                if (editorFooter) height = Math.max(0, height - editorFooter.outerHeight());
+                if (editorHeader) {
+                  height = Math.max(0, height - editorHeader.outerHeight());
+                }
+                if (editorFooter) {
+                  height = Math.max(0, height - editorFooter.outerHeight());
+                }
                 textarea.css('height', height + 'px');
               } else {
                 editor.addClass(options.height);
@@ -892,12 +898,12 @@
             }
           )();
         },
-        renderEmoji:function(text){
-          
+        renderEmoji: function (text) {
+
           var e = this.$textarea[0];
-          console.log(e)                  
+          console.log(e)
           return (
-  
+
             ('selectionStart' in e && function () {
               e.value = e.value.substr(0, e.selectionStart) + text + e.value.substr(e.selectionEnd, e.value.length);
               // Set cursor to the last replacement end
@@ -1051,7 +1057,9 @@
               blocked = false;
               break;
             case 27: // escape
-              if (this.$isFullscreen) this.setFullscreen(false);
+              if (this.$isFullscreen) {
+                this.setFullscreen(false);
+              }
               blocked = false;
               break;
 
@@ -1387,12 +1395,12 @@
                     var previewEmotion = '<div class="' + $(this).attr('class') + '" data="' + $(this).attr('data') + '"></div>'
                     var selected = e.getSelection()
                     // transform selection and set the cursor into chunked text
-                    // Todo : fix wrong render 
+                    // Todo : fix wrong render
                     e.renderEmoji(previewEmotion);
-                    var cursor = selected.start;                  
+                    var cursor = selected.start;
                     // Set the cursor
                     // Todo : fix wrong cursor position
-                    e.setSelection(cursor, cursor + previewEmotion.length*2);
+                    e.setSelection(cursor, cursor + previewEmotion.length * 2);
                     $(this).parent().parent().removeClass('display-block')
                   })
                 }
@@ -1625,19 +1633,19 @@
                   // Give flag that tell the editor enter preview mode
                   e.showPreview();
                   $('p').each(function () {
-                  var html = $(this).html()
-                  var emtionRender = ''
-                  if (html.match('em emj')) {
-                    var emotion = html.split(' ')
-                    for (var i = 0; i < emotion.length; i++) {
-                      if (i % 2) {
-                        $(this).empty()
-                        emtionRender += '<div class="em ' + emotion[i] + '"></div>'
+                    var html = $(this).html()
+                    var emtionRender = ''
+                    if (html.match('em emj')) {
+                      var emotion = html.split(' ')
+                      for (var i = 0; i < emotion.length; i++) {
+                        if (i % 2) {
+                          $(this).empty()
+                          emtionRender += '<div class="em ' + emotion[i] + '"></div>'
+                        }
                       }
+                      $(this).append(emtionRender)
                     }
-                    $(this).append(emtionRender)
-                  }
-                })
+                  })
                 } else {
                   e.hidePreview();
                 }
@@ -1765,14 +1773,14 @@
           e.preventDefault();
         })
         .on('click focusin', function (e) {
-          blurNonFocused(e);        
+          blurNonFocused(e);
           console.log(e)
         })
         .ready(function () {
           $('textarea[data-provide="markdown"]').each(function () {
             initMarkdown($(this));
           });
-        });     
+        });
     }));
   </script>
   <!-- your ng-app file -->
