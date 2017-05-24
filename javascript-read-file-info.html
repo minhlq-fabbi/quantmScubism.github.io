@@ -57,6 +57,15 @@
     .panel-table .panel-body .table-bordered > tbody > tr > td {
       line-height: 34px;
     }
+    #drop_zone {
+      border: 2px dashed #bbb;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+      padding: 25px;
+      text-align: center; 
+      color: #bbb;
+    }
   </style>
 </head>
 <body>
@@ -65,10 +74,10 @@
   <div class="panel-body">
     <table class="table table-striped table-bordered table-list" id="table_container_form_input"></table>
     <table class="table table-striped table-bordered table-list" id="table_container_drag_drop_input"></table>
+    <div id="drop_zone">Drop files here</div>
     <div class="input">
       <input type="file" id="files" name="files[]" multiple/>
     </div>
-    <div id="drop_zone">Drop files here</div>
   </div>
 </div>
 <script type="text/javascript">
