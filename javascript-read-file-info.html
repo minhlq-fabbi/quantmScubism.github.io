@@ -63,7 +63,9 @@
 <body>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
 <div class="container" id="container">
- 
+  <div class="panel-body">
+    <table class="table table-striped table-bordered table-list" id="table_container_form_input"></table>
+  </div>
 </div>
 <div class="input">
   <input type="file" id="files" name="files[]" multiple />  
@@ -86,7 +88,7 @@
                     f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
                     '</td></tr>');
       }
-      document.getElementById('container').innerHTML = '<table>' + output.join('') + '</table>';
+      document.getElementById('table_container_form_input').innerHTML = output.join('');
     }
     document.getElementById('files').addEventListener('change', handleFileSelect, false);
   </script>  
