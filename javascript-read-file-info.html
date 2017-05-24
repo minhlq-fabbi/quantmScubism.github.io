@@ -152,7 +152,7 @@
         return function(e) {
           // Render thumbnail.
           var tr = document.createElement('tr');
-          span.innerHTML = ['<td><img class="thumb" src="', e.target.result,
+          tr.innerHTML = ['<td><img class="thumb" src="', e.target.result,
                             '" title="', escape(theFile.name), '"/></td>'].join('');
           document.getElementById('table_container_cUrlData_input').insertBefore(tr, null);
         };
