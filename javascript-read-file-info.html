@@ -103,18 +103,7 @@
     // files is a FileList of File objects. List some properties.
     var output = [];
     for (var i = 0, f; f = files[i]; i++) {
-      output.push('
-        < tr > < / tr > < td >
-        < strong > ', escape(f.name), ' < / strong > (', f.type || '
-      n / a
-      ', '
-    )
-      -', f.size, '
-      bytes, last
-      modified: ', f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : '
-      n / a
-      ', '
-      < / td > < / tr > ');
+          output.push(' <tr> <td><strong> ', escape(f.name), ' </strong > (', f.type || 'n / a', ') -', f.size, 'bytes, lastmodified: ', f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n / a', ' </td> </tr>');
     }
     document.getElementById('table_container_drag_drop_input').innerHTML = output.join('');
   }
