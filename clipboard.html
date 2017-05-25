@@ -1,23 +1,44 @@
-<!doctype html>
-<html ng-strict-di>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
   <title>Clipboard.js Demo</title>
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.1/clipboard.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="row">
-  <textarea id="bar">Text to be copied...</textarea>
-  <!-- Trigger -->
-  <button class="btn" data-clipboard-action="copy" data-clipboard-target="#bar">
-    Copy to clipboard
-  </button>
 
-  <textarea id="bar">Text to be cut...</textarea>
-  <!-- Trigger -->
-  <button class="btn" data-clipboard-action="cut" data-clipboard-target="#bar">
-    Cut to clipboard
-  </button>
+<div class="container">
+  <h2>Clipboard.js</h2>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Copy text</th>
+      <th>Cut text</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <textarea id="bar">Text to be copied...</textarea>
+        <!-- Trigger -->
+        <button class="btn" data-clipboard-action="copy" data-clipboard-target="#bar">
+          Copy to clipboard
+        </button>
+      </td>
+      <td>
+        <textarea id="bar">Text to be cut...</textarea>
+        <!-- Trigger -->
+        <button class="btn" data-clipboard-action="cut" data-clipboard-target="#bar">
+          Cut to clipboard
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
+
 </body>
+</html>
