@@ -14,18 +14,18 @@
         var clipboard = new Clipboard('.btn')
         var action = $(this).attr('data-clipboard-action')
         clipboard.on('success', function (e) {
-          switch(action){
-            case 'copy':
-              $('#copied').html('Copied')
-              break;
-            case 'cut':
-              $('#cutted').html('Cutted')             
-              break;
-          }
           console.info('Action:', e.action)
           console.info('Text:', e.text)
           console.info('Trigger:', e.trigger)
           e.clearSelection()
+          switch (action) {
+            case 'copy':
+              $('#copied').html('Copied')
+              break;
+            case 'cut':
+              $('#cutted').html('Cutted')
+              break;
+          }
         })
         clipboard.on('error', function (e) {
           console.error('Action:', e.action)
@@ -52,7 +52,8 @@
       <td>
         <textarea id="barCopy">Text to be copied...</textarea> <br>
         <!-- Trigger -->
-        <div id="copied" style="color:red"></div><br>
+        <div id="copied" style="color:red"></div>
+        <br>
         <button class="btn" data-clipboard-action="copy" data-clipboard-target="#barCopy">
           Copy to clipboard
         </button>
@@ -60,7 +61,8 @@
       <td>
         <textarea id="barCut">Text to be cut...</textarea> <br>
         <!-- Trigger -->
-        <div id="cutted" style="color:red"></div><br>
+        <div id="cutted" style="color:red"></div>
+        <br>
         <button class="btn" data-clipboard-action="cut" data-clipboard-target="#barCut">
           Cut to clipboard
         </button>
