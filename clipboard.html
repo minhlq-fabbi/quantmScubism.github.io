@@ -9,20 +9,22 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.1/clipboard.min.js"></script>
   <script type="text/javascript">
-    $(document).on('click', '.btn', function () {
-      var clipboard = new Clipboard('.btn')
-      clipboard.on('success', function (e) {
-        console.info('Action:', e.action)
-        console.info('Text:', e.text)
-        console.info('Trigger:', e.trigger)
-        e.clearSelection()
+    wind.onload = function () {
+      $(document).on('click', '.btn', function () {
+        var clipboard = new Clipboard('.btn')
+        clipboard.on('success', function (e) {
+          console.info('Action:', e.action)
+          console.info('Text:', e.text)
+          console.info('Trigger:', e.trigger)
+          e.clearSelection()
+        })
+        clipboard.on('error', function (e) {
+          console.error('Action:', e.action)
+          console.error('Trigger:', e.trigger)
+        })
+        $('.btn').tooltip({content: 'Copied'})
       })
-      clipboard.on('error', function (e) {
-        console.error('Action:', e.action)
-        console.error('Trigger:', e.trigger)
-      })
-      $('.btn').tooltip({content: 'Copied'})
-    })
+    }
   </script>
 </head>
 <body>
