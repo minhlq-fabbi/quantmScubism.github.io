@@ -4,18 +4,20 @@
   <meta charset="utf-8">
   <title>Clipboard.js Demo</title>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.1/clipboard.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.1/clipboard.min.js"></script>
 </head>
 <body>
+<div class="row">
   <textarea id="bar">Text to be copied...</textarea>
-<!-- Trigger -->
-<button class="btn" data-clipboard-action="copy" data-clipboard-target="#bar">
+  <!-- Trigger -->
+  <button class="btn" data-clipboard-action="copy" data-clipboard-target="#bar">
     Copy to clipboard
-</button>
- 
-<textarea id="bar">Text to be cut...</textarea>
-<!-- Trigger -->
-<button class="btn" data-clipboard-action="cut" data-clipboard-target="#bar">
+  </button>
+
+  <textarea id="bar">Text to be cut...</textarea>
+  <!-- Trigger -->
+  <button class="btn" data-clipboard-action="cut" data-clipboard-target="#bar">
     Cut to clipboard
-</button>
+  </button>
+</div>
 </body>
