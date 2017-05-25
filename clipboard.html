@@ -7,6 +7,22 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    $(document).on('click', '.btn', function () {
+      var clipboard = new Clipboard('.btn')
+      clipboard.on('success', function (e) {
+        console.info('Action:', e.action)
+        console.info('Text:', e.text)
+        console.info('Trigger:', e.trigger)
+        e.clearSelection()
+      })
+      clipboard.on('error', function (e) {
+        console.error('Action:', e.action)
+        console.error('Trigger:', e.trigger)
+      })
+      $('.btn').tooltip({content: 'Copied'})
+    })
+  </script>
 </head>
 <body>
 
@@ -22,16 +38,14 @@
     <tbody>
     <tr>
       <td>
-        <textarea id="barCopy">Text to be copied...</textarea>
-        <br>
+        <textarea id="barCopy">Text to be copied...</textarea> <br>
         <!-- Trigger -->
         <button class="btn" data-clipboard-action="copy" data-clipboard-target="#barCopy">
           Copy to clipboard
         </button>
       </td>
       <td>
-        <textarea id="barCut">Text to be cut...</textarea>
-        <br>
+        <textarea id="barCut">Text to be cut...</textarea> <br>
         <!-- Trigger -->
         <button class="btn" data-clipboard-action="cut" data-clipboard-target="#barCut">
           Cut to clipboard
