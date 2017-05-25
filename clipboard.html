@@ -17,20 +17,20 @@
           console.info('Action:', e.action)
           console.info('Text:', e.text)
           console.info('Trigger:', e.trigger)
-          e.clearSelection()          
+          e.clearSelection()
         })
         clipboard.on('error', function (e) {
           console.error('Action:', e.action)
           console.error('Trigger:', e.trigger)
         })
         switch (action) {
-            case 'copy':
-              $('#copied').html('Copied')
-              break;
-            case 'cut':
-              $('#cutted').html('Cutted')
-              break;
-          }
+          case 'copy':
+            $('#copied').html('Copied')
+            break;
+          case 'cut':
+            $('#cutted').html('Cutted')
+            break;
+        }
       })
     }
   </script>
